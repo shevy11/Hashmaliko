@@ -28,6 +28,6 @@ module.exports = {
         content: '❌ | No music is being played!',
       });
     queue.destroy();
-    return void interaction.followUp({content: '🛑 | Stopped the player!'});
+    return void interaction.followUp({content: '🛑 | אוקיי... בלי שירים'});
   },
 };

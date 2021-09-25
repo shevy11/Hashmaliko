@@ -35,11 +35,11 @@ player.on('trackAdd', (queue, track) => {
 });
 
 player.on('botDisconnect', queue => {
-  queue.metadata.send('❌ | I was manually disconnected from the voice channel, clearing queue!');
+  queue.metadata.send('❌ | הטסתם אותי אה ישרמוטות');
 });
 
 player.on('channelEmpty', queue => {
-  queue.metadata.send('❌ | Nobody is in the voice channel, leaving...');
+  queue.metadata.send('❌ | אף אחד לא פה? אני מתנוותק');
 });
 
 player.on('queueEnd', queue => {
