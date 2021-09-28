@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const Client = require('./client/Client');
 const config = require('./config.json');
 const {Player} = require('discord-player');
+const keepAlive = require('./server')
 
 const client = new Client();
 client.commands = new Discord.Collection();
@@ -70,7 +71,10 @@ client.on('messageCreate', async message => {
     await message.guild.commands
       .set(client.commands)
       .then(() => {
-        message.reply('Deployed!');
+        message.reply(`
+        🔥 אז מה חדש?
+        /hamim - מביא את המוזיקה הכי חמה בשוק
+        `);
       })
       .catch(err => {
         message.reply('Could not deploy commands! Make sure the bot has the application.commands permission!');
@@ -96,4 +100,5 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(config.token);
+keepAlive()
+client.login(process.env['TOKEN'])

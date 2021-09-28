@@ -12,7 +12,7 @@ module.exports = {
       required: true,
     },
   ],
-  async execute(interaction, player) {
+  async execute(interaction, player, url = null) {
     try {
       if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
         return void interaction.reply({
@@ -33,7 +33,7 @@ module.exports = {
 
       await interaction.deferReply();
 
-      const query = interaction.options.get('query').value;
+      const query = url || interaction.options.get('query').value;
       const searchResult = await player
         .search(query, {
           requestedBy: interaction.user,
